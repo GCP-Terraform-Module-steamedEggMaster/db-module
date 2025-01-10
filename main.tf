@@ -91,6 +91,7 @@ resource "google_sql_database_instance" "database" {
         reuse_interval              = var.password_reuse_interval
         disallow_username_substring = var.password_disallow_username_substring
         password_change_interval    = var.password_change_interval
+        enable_password_policy      = var.password_policy_enabled
       }
     }
   }
