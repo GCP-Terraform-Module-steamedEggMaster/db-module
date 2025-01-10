@@ -9,6 +9,9 @@ jobs:
   terraform-test:
     runs-on: ubuntu-latest
 
+    env:
+      GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
+
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3

@@ -10,7 +10,7 @@ module "db" {
   name              = "test-sql-instance"
   database_version  = "POSTGRES_13"
   region            = "asia-northeast1"
-  project           = "happydevops"
+  project           = var.project
   tier              = "db-custom-2-8192"
   availability_type = "REGIONAL"
   disk_size         = 20
