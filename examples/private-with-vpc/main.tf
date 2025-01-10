@@ -7,7 +7,7 @@ module "vpc" {
 module "db" {
   source = "../../"
 
-  name              = "test-sql-instance"
+  name              = var.name
   database_version  = "POSTGRES_13"
   region            = "asia-northeast1"
   project           = var.project
