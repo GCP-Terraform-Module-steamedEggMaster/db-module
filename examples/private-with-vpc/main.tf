@@ -16,6 +16,6 @@ module "db" {
   disk_size         = 20
   activation_policy = "ALWAYS"
   ipv4_enabled      = true
-  private_network   = module.vpc.id
+  private_network   = module.vpc.self_link
   user_labels       = { environment = "test" }
 }
