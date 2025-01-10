@@ -16,7 +16,7 @@ func TestCreateDB(t *testing.T) {
 
 		Vars: map[string]interface{}{
 			"project": projectName,
-		}
+		},
 	}
 
 	// Terraform Init 및 Apply 실행
