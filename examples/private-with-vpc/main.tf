@@ -15,7 +15,7 @@ module "database_instance" {
   disk_type         = "PD_SSD"            # 디스크 유형 (PD_SSD 또는 PD_HDD)
   activation_policy = "ALWAYS"            # 활성화 정책
   availability_type = "REGIONAL"          # 고가용성 유형 (ZONAL 또는 REGIONAL)
-  ipv4_enabled      = fasle
+  ipv4_enabled      = false
   private_network   = module.vpc.self_link
   user_labels       = { environment = "test" } # 사용자 정의 레이블
 }
