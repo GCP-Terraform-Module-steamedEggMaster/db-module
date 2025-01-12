@@ -18,6 +18,7 @@ module "database_instance" {
 ##   ipv4_enabled      = false
 ##   private_network   = module.vpc.self_link
   user_labels       = { environment = "test" } # 사용자 정의 레이블
+  project           = var.project
 }
 
 # Cloud SQL 인스턴스에 데이터베이스 정의
