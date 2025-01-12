@@ -1,7 +1,7 @@
-resource "google_sql_database_instance" "db" { # Google Cloud SQL Database Instance 리소스 생성
-  name             = var.name                        # 데이터베이스 인스턴스 이름
-  database_version = var.database_version            # 데이터베이스 버전 (예: POSTGRES_13)
-  region           = var.region                      # 인스턴스가 생성될 GCP 리전
+ㅍresource "google_sql_database_instance" "database_instance" { # Google Cloud SQL Database Instance 리소스 생성
+  name             = var.name                                  # 데이터베이스 인스턴스 이름
+  database_version = var.database_version                      # 데이터베이스 버전 (예: POSTGRES_13)
+  region           = var.region                                # 인스턴스가 생성될 GCP 리전
 
   settings {                                  # 데이터베이스 인스턴스의 설정 블록
     tier              = var.tier              # 인스턴스 머신 타입 (예: db-f1-micro)

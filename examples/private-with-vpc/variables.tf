@@ -1,9 +1,4 @@
-variable "name" {
-  description = "생성할 DB 명"
-  type        = string
-}
-
 variable "project" {
-  description = "DB를 생성할 Project 명"
+  description = "Cloud SQL 인스턴스가 속할 GCP 프로젝트 ID"
   type        = string
 }

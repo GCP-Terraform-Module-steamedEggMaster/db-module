@@ -15,7 +15,6 @@ func TestCreateDB(t *testing.T) {
 		TerraformDir: "../examples/private-with-vpc", // Terraform 루트 모듈 경로
 
 		Vars: map[string]interface{}{
-			"name"   : "test-db-instance",
 			"project": projectName,
 		},
 	}
