@@ -7,14 +7,14 @@
 module "database_instance" {
   source = "../../database-instance"
 
-  name              = "test-sql-instance" # Cloud SQL 인스턴스 이름
-  database_version  = "POSTGRES_13"       # 데이터베이스 버전
-  region            = "asia-northeast3"       # 리전
-  tier              = "db-f1-micro"       # 머신 타입
-  disk_size         = 20                  # 디스크 크기 (GB)
-  disk_type         = "PD_SSD"            # 디스크 유형 (PD_SSD 또는 PD_HDD)
-  activation_policy = "ALWAYS"            # 활성화 정책
-  availability_type = "REGIONAL"          # 고가용성 유형 (ZONAL 또는 REGIONAL)
+  name              = "test-sql-instance"
+  database_version  = "POSTGRES_13"
+  region            = "asia-northeast3"
+  tier              = "db-f1-micro"
+  disk_size         = 20
+  disk_type         = "PD_SSD"
+  activation_policy = "ALWAYS"
+  availability_type = "REGIONAL"
   # ipv4_enabled      = false
   # private_network   = module.vpc.self_link
   user_labels       = { environment = "test" } # 사용자 정의 레이블
