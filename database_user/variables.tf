@@ -31,11 +31,11 @@ EOT
 variable "deletion_policy" {
   description = <<EOT
 사용자 삭제 정책:
-- DELETE: 리소스 삭제
-- ABANDON: 리소스를 삭제하지 않고 남김 (PostgreSQL용)
+- "" : 리소스 삭제
+- ABANDON : 리소스를 삭제하지 않고 남김 (PostgreSQL용)
 EOT
   type        = string
-  default     = "DELETE"
+  default     = ""
 }
 
 variable "host" {
