@@ -1,8 +1,8 @@
-module "vpc" {
-  source = "git::https://github.com/GCP-Terraform-Module-steamedEggMaster/vpc-module.git?ref=v1.0.0"
-
-  name = "test-private-vpc"
-}
+#module "vpc" {
+#  source = "git::https://github.com/GCP-Terraform-Module-steamedEggMaster/vpc-module.git?ref=v1.0.0"
+#
+#  name = "test-private-vpc"
+#}
 
 module "database_instance" {
   source = "../../database-instance"
@@ -16,7 +16,6 @@ module "database_instance" {
   activation_policy = "ALWAYS"            # 활성화 정책
   availability_type = "REGIONAL"          # 고가용성 유형 (ZONAL 또는 REGIONAL)
   ipv4_enabled      = true
-  private_network   = module.vpc.id
   user_labels       = { environment = "test" } # 사용자 정의 레이블
 }
 
