@@ -16,7 +16,7 @@ module "database_instance" {
   activation_policy = "ALWAYS"            # 활성화 정책
   availability_type = "REGIONAL"          # 고가용성 유형 (ZONAL 또는 REGIONAL)
   ipv4_enabled      = true
-  private_network   = module.vpc.self_link
+  private_network   = module.vpc.id
   user_labels       = { environment = "test" } # 사용자 정의 레이블
 }
 
