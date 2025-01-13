@@ -66,11 +66,6 @@ output "ipv4_enabled" {
   value       = try(google_sql_database_instance.database_instance.settings[0].ip_configuration[0].ipv4_enabled, null)
 }
 
-output "ssl_enforcement" {
-  description = "Cloud SQL 인스턴스의 SSL 연결 정책"
-  value       = try(google_sql_database_instance.database_instance.settings[0].ip_configuration[0].ssl_mode, null)
-}
-
 output "backup_configuration" {
   description = "Cloud SQL 인스턴스의 백업 설정"
   value = {
@@ -105,11 +100,6 @@ output "maintenance_window" {
 output "labels" {
   description = "Cloud SQL 인스턴스의 사용자 정의 레이블"
   value       = try(google_sql_database_instance.database_instance.settings[0].user_labels, {})
-}
-
-output "replica_names" {
-  description = "Cloud SQL 인스턴스의 복제본 이름 목록"
-  value       = google_sql_database_instance.database_instance.replica_names
 }
 
 output "deletion_protection" {

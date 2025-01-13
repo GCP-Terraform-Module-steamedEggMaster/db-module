@@ -14,12 +14,10 @@ output "database_instance_details" {
     ip_addresses         = module.database_instance.ip_addresses         # IP 주소 목록
     private_network      = module.database_instance.private_network      # 프라이빗 네트워크
     ipv4_enabled         = module.database_instance.ipv4_enabled         # IPv4 활성화 여부
-    ssl_enforcement      = module.database_instance.ssl_enforcement      # SSL 연결 정책
     backup_configuration = module.database_instance.backup_configuration # 백업 설정
     query_insights       = module.database_instance.query_insights       # Query Insights 설정
     maintenance_window   = module.database_instance.maintenance_window   # 유지 관리 창
-    labels               = module.database_instance.labels               # 사용자 정의 레이블
-    replica_names        = module.database_instance.replica_names        # 복제본 이름 목록
+    labels               = module.database_instance.labels               # 사용자 정의 레이블       # 복제본 이름 목록
     deletion_protection  = module.database_instance.deletion_protection  # 삭제 보호 상태
   }
 }
