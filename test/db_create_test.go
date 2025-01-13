@@ -1,15 +1,13 @@
 package test
 
 import (
-	"os"
 	"testing"
 
 	"github.com/gruntwork-io/terratest/modules/terraform"
 )
 
 func TestCreateDB(t *testing.T) {
-	projectName := os.Getenv("GCP_PROJECT")
-
+	// projectName := os.Getenv("GCP_PROJECT")
 	// Terraform 옵션 설정
 	terraformOptions := &terraform.Options{
 		TerraformDir: "../examples/private-with-vpc", // Terraform 루트 모듈 경로
