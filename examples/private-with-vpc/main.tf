@@ -34,7 +34,7 @@ module "database" {
 
 # Cloud SQL 데이터베이스 사용자 정의
 module "database_user" {
-  source = "../../database_user"
+  source = "../../database-user"
 
   instance = module.database_instance.name # 앞서 생성한 인스턴스 이름 참조
   name     = "test-user"                   # 사용자 이름
