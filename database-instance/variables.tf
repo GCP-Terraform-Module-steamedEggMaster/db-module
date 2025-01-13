@@ -131,6 +131,17 @@ variable "ssl_mode" {
   default     = null
 }
 
+variable "authorized_networks" {
+  description = "허용된 네트워크의 목록. 각 항목은 value, name, expiration_time을 포함."
+  type = list(object({
+    value           = string           # 허용된 네트워크 CIDR
+    name            = optional(string) # 네트워크 이름
+    expiration_time = optional(string) # 만료 시간 (RFC 3339 형식)
+  }))
+  default = []
+}
+
+
 # 유지 관리 창 설정
 variable "maintenance_day" {
   description = "유지 관리 요일 (1-7, 월요일 시작)"

@@ -1,7 +1,7 @@
 resource "google_sql_database_instance" "database_instance" {
-  name             = var.name                                  # 데이터베이스 인스턴스 이름
-  database_version = var.database_version                      # 데이터베이스 버전 (예: POSTGRES_13)
-  region           = var.region                                # 인스턴스가 생성될 GCP 리전
+  name             = var.name             # 데이터베이스 인스턴스 이름
+  database_version = var.database_version # 데이터베이스 버전 (예: POSTGRES_13)
+  region           = var.region           # 인스턴스가 생성될 GCP 리전
 
   settings {                                  # 데이터베이스 인스턴스의 설정 블록
     tier              = var.tier              # 인스턴스 머신 타입 (예: db-f1-micro)
@@ -36,6 +36,17 @@ resource "google_sql_database_instance" "database_instance" {
         allocated_ip_range                            = var.allocated_ip_range  # 할당된 IP 범위
         ssl_mode                                      = var.ssl_mode            # SSL 설정 모드
         enable_private_path_for_google_cloud_services = var.enable_private_path # Google Cloud 서비스의 프라이빗 경로 활성화 여부
+
+
+        # Authorized Networks 추가
+        dynamic "authorized_networks" {
+          for_each = var.authorized_networks
+          content {
+            value           = authorized_networks.value.value                      # 허용된 네트워크 CIDR
+            name            = try(authorized_networks.value.name, null)            # 네트워크 이름 (Optional)
+            expiration_time = try(authorized_networks.value.expiration_time, null) # 만료 시간 (Optional)
+          }
+        }
       }
     }
 

@@ -14,9 +14,9 @@ func TestCreateDB(t *testing.T) {
 	terraformOptions := &terraform.Options{
 		TerraformDir: "../examples/private-with-vpc", // Terraform 루트 모듈 경로
 
-		Vars: map[string]interface{}{
-			"project": projectName,
-		},
+		// Vars: map[string]interface{}{
+		// 	"project": projectName,
+		// },
 	}
 
 	// Terraform Init 및 Apply 실행
