@@ -34,9 +34,7 @@ resource "google_sql_database_instance" "database_instance" {
         ipv4_enabled                                  = var.ipv4_enabled        # IPv4 활성화 여부
         private_network                               = var.private_network     # 프라이빗 네트워크 URI
         allocated_ip_range                            = var.allocated_ip_range  # 할당된 IP 범위
-        ssl_mode                                      = var.ssl_mode            # SSL 설정 모드
         enable_private_path_for_google_cloud_services = var.enable_private_path # Google Cloud 서비스의 프라이빗 경로 활성화 여부
-
 
         # Authorized Networks 추가
         dynamic "authorized_networks" {

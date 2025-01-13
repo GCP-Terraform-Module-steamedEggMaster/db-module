@@ -125,12 +125,6 @@ variable "enable_private_path" {
   default     = false
 }
 
-variable "ssl_mode" {
-  description = "SSL 연결 설정 (ALLOW_UNENCRYPTED_AND_ENCRYPTED, ENCRYPTED_ONLY, TRUSTED_CLIENT_CERTIFICATE_REQUIRED)"
-  type        = string
-  default     = null
-}
-
 variable "authorized_networks" {
   description = "허용된 네트워크의 목록. 각 항목은 value, name, expiration_time을 포함."
   type = list(object({
