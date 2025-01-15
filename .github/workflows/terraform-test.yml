@@ -11,9 +11,7 @@ jobs:
 
     env:
       GCP_PROJECT: ${{ secrets.GCP_PROJECT }}
-      TF_LOG: DEBUG # Terraform 디버그 로그 활성화
-      TF_LOG_PATH: ./terraform-debug.log # 로그를 파일로 저장
-
+    
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v3
@@ -40,12 +38,8 @@ jobs:
         go mod init github.com/test/db-module
         go mod tidy
 
-    - name: Run Terraform Tests
+    - name: Run Terraform Tests with Debug Logs
       working-directory: ./test
+      env:
+        TF_LOG: DEBUG # 디버그 로그를 터미널에 출력
       run: go test -v
-
-    - name: Upload Terraform Debug Log
-      uses: actions/upload-artifact@v3
-      with:
-        name: terraform-debug-log
-        path: ./terraform-debug.log
