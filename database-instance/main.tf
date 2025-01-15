@@ -3,6 +3,8 @@ resource "google_sql_database_instance" "database_instance" {
   database_version = var.database_version # 데이터베이스 버전 (예: POSTGRES_13)
   region           = var.region           # 인스턴스가 생성될 GCP 리전
 
+  project = var.project # GCP 프로젝트 ID  
+
   settings {                                  # 데이터베이스 인스턴스의 설정 블록
     tier              = var.tier              # 인스턴스 머신 타입 (예: db-f1-micro)
     availability_type = var.availability_type # 고가용성 설정 (예: ZONAL, REGIONAL)
@@ -117,6 +119,4 @@ resource "google_sql_database_instance" "database_instance" {
       password        = var.replica_password        # 복제 사용자 비밀번호
     }
   }
-
-  project = var.project # GCP 프로젝트 ID
 }
