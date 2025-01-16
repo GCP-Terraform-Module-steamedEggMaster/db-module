@@ -1,4 +1,4 @@
-resource "google_sql_database_instance" "sql_instance" {
+resource "google_sql_database_instance" "database_instance" {
   name                = var.name                # 인스턴스 이름
   region              = var.region              # 리전 설정
   database_version    = var.database_version    # 데이터베이스 버전
