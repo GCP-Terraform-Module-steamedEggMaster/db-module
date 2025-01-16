@@ -105,19 +105,19 @@ variable "settings" {
 variable "timeout_create" {
   description = "Cloud SQL 인스턴스 생성 작업의 시간 제한 (기본값: 30분)."
   type        = string
-  default     = "30m"
+  default     = "90m"
 }
 
 # 업데이트 제한 시간
 variable "timeout_update" {
   description = "Cloud SQL 인스턴스 업데이트 작업의 시간 제한 (기본값: 30분)."
   type        = string
-  default     = "30m"
+  default     = "90m"
 }
 
 # 삭제 제한 시간
 variable "timeout_delete" {
   description = "Cloud SQL 인스턴스 삭제 작업의 시간 제한 (기본값: 30분)."
   type        = string
-  default     = "30m"
+  default     = "90m"
 }

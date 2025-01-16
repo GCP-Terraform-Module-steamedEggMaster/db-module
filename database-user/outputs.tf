@@ -21,7 +21,17 @@ output "project" {
   value       = google_sql_user.user.project
 }
 
+output "host" {
+  description = "Cloud SQL 사용자 접속 호스트 (MySQL 전용)"
+  value       = google_sql_user.user.host
+}
+
 output "type" {
-  description = "Cloud SQL 사용자 인증 유형"
+  description = "Cloud SQL 사용자의 인증 유형 (SQL 또는 IAM)"
   value       = google_sql_user.user.type
+}
+
+output "deletion_policy" {
+  description = "Cloud SQL 사용자 삭제 정책"
+  value       = google_sql_user.user.deletion_policy
 }
