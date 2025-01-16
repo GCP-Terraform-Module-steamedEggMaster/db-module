@@ -11,7 +11,7 @@ module "test_instance" {
   database_version  = "POSTGRES_13"       # 데이터베이스 버전
   region            = "asia-northeast3"   # 리전
 
-  settings {
+  settings = {
     tier              = "db-f1-micro"       # 머신 타입
     disk_size         = 20                  # 디스크 크기 (GB)
     disk_type         = "PD_SSD"            # 디스크 유형 (PD_SSD 또는 PD_HDD)
