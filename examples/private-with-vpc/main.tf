@@ -40,5 +40,6 @@ module "test_database_user" {
   name     = "test-user"               # 사용자 이름
   password = "test-password"           # 사용자 비밀번호
   type     = "BUILT_IN"                # 인증 유형 (BUILT_IN, CLOUD_IAM_USER 등)
-  host     = "%"                       # 접속 허용 호스트 (%는 모든 호스트 허용)
+  ## host     = "%"                       # 접속 허용 호스트 (%는 모든 호스트 허용)
+  ## MySQL에서만 쓰임
 }
