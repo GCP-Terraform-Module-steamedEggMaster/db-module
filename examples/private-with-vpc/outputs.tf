@@ -25,25 +25,24 @@ output "database_instance_details" {
 output "database_outputs" {
   description = "Cloud SQL 데이터베이스와 관련된 정보"
   value = {
-    id        = google_sql_database.database.id
-    name      = google_sql_database.database.name
-    instance  = google_sql_database.database.instance
-    project   = google_sql_database.database.project
-    charset   = google_sql_database.database.charset
-    collation = google_sql_database.database.collation
+    id        = module.test_database.id
+    name      = module.test_database.name
+    instance  = module.test_database.instance
+    project   = module.test_database.project
+    charset   = module.test_database.charset
+    collation = module.test_database.collation
   }
 }
 
-output "google_sql_user_outputs" {
+output "database_user_outputs" {
   description = "Cloud SQL 사용자와 관련된 정보"
   value = {
-    id              = google_sql_user.user.id
-    name            = google_sql_user.user.name
-    instance        = google_sql_user.user.instance
-    project         = google_sql_user.user.project
-    host            = google_sql_user.user.host
-    type            = google_sql_user.user.type
-    deletion_policy = google_sql_user.user.deletion_policy
+    id              = module.test_database_user.id
+    name            = module.test_database_user.name
+    instance        = module.test_database_user.instance
+    project         = module.test_database_user.project
+    host            = module.test_database_user.host
+    type            = module.test_database_user.type
+    deletion_policy = module.test_database_user.deletion_policy
   }
 }
-
