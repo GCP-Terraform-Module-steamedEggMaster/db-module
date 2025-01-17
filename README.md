@@ -226,3 +226,97 @@ module "cloud_sql_user" {
 | `project`   | Cloud SQL 데이터베이스가 속한 GCP 프로젝트 ID                       |
 | `charset`   | Cloud SQL 데이터베이스에 설정된 문자셋 (예: UTF8)                   |
 | `collation` | Cloud SQL 데이터베이스에 설정된 Collation                          |
+
+#### 3. `database-user`
+
+| 출력명           | 설명                                                        |
+|-------------------|-----------------------------------------------------------|
+| `id`             | Cloud SQL 사용자의 고유 ID                                 |
+| `name`           | Cloud SQL 사용자의 이름                                    |
+| `instance`       | Cloud SQL 사용자가 속한 인스턴스 이름                      |
+| `project`        | Cloud SQL 사용자가 속한 GCP 프로젝트 ID                    |
+| `host`           | Cloud SQL 사용자 접속 호스트 (MySQL 전용)                 |
+| `type`           | Cloud SQL 사용자의 인증 유형 (SQL 또는 IAM)               |
+| `deletion_policy`| Cloud SQL 사용자 삭제 정책                                |
+
+<br>
+
+### 5. 지원 버전
+
+#### a.  Terraform 버전
+| 버전 범위 | 설명                              |
+|-----------|-----------------------------------|
+| `1.10.3`   | 최신 버전, 지원 및 테스트 완료                  |
+
+#### b. Google Provider 버전
+| 버전 범위 | 설명                              |
+|-----------|-----------------------------------|
+| `~> 6.0`  | 최소 지원 버전                   |
+
+<br>
+
+### 6. 모듈 개발 및 관리
+
+- **저장소 구조**:
+  ```
+  db-module/
+  ├── .github/workflows/  # github actions 자동화 테스트
+  ├── examples/           # 테스트를 위한 루트 모듈 모음 디렉터리
+  ├── test/               # 테스트 구성 디렉터리
+  ├── database-instance   # 데이터베이스 인스턴스 모듈 디렉터리
+  │   ├── main.tf             # 모듈의 핵심 구현
+  │   ├── variables.tf        # 입력 변수 정의
+  │   ├── outputs.tf          # 출력 정의
+  │   ├── versions.tf         # 버전 정의
+  ├── database/               # 데이터베이스 모듈 디렉터리
+  │   ├── main.tf             # 모듈의 핵심 구현
+  │   ├── variables.tf        # 입력 변수 정의
+  │   ├── outputs.tf          # 출력 정의
+  │   ├── versions.tf         # 버전 정의
+  ├── database-user/          # 데이터베이스 유저 모듈 디렉터리
+  │   ├── main.tf             # 모듈의 핵심 구현
+  │   ├── variables.tf        # 입력 변수 정의
+  │   ├── outputs.tf          # 출력 정의
+  │   ├── versions.tf         # 버전 정의
+  ├── README.md           # 문서화 파일
+  ```
+
+  <br>
+
+---
+
+## Terratest를 이용한 테스트
+이 모듈을 테스트하려면 제공된 Go 기반 테스트 프레임워크를 사용하세요. 아래를 확인하세요:
+
+1. Terraform 및 Go 설치.
+2. 필요한 환경 변수 설정 (GCP_PROJECT_ID, API_SERVICES 등).
+3. 테스트 실행:
+```bash
+go test -v ./test
+```
+
+<br>
+
+## 주요 버전 관리
+이 모듈은 [Semantic Versioning](https://semver.org/)을 따릅니다.  
+안정된 버전을 사용하려면 `?ref=<version>`을 활용하세요:
+
+```hcl
+source = "git::https://github.com/GCP-Terraform-Module-steamedEggMaster/db-module.git//모듈디렉토리명?ref=v1.0.0"
+```
+
+### Module ref 버전
+| Major | Minor | Patch |
+|-----------|-----------|----------|
+| `1.0.0`   |    |   |
+
+
+<br>
+
+## 기여 (Contributing)
+기여를 환영합니다! 버그 제보 및 기능 요청은 GitHub Issues를 통해 제출해주세요.
+
+<br>
+
+## 라이선스 (License)
+[MIT License](LICENSE)
