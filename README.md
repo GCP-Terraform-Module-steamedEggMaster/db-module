@@ -68,6 +68,9 @@ GCP에서 Cloud SQL 인스턴스와 데이터베이스를 관리하기 위한 Te
 | `backup_configuration`    | object    | ❌        | 백업 설정 (활성화 여부, 시작 시간, 시점 복구 여부 등)            |
 | `ip_configuration`        | object    | ❌        | IP 설정 (IPv4 활성화 여부, Private Network 설정 등)               |
 | `maintenance_window`      | object    | ❌        | 유지 관리 창 설정 (요일, 시간 등)                                 |
+| `location_preference`     | object    | ❌        | 위치 설정 (기본 존, 보조 존, GAE 애플리케이션 존 등)              |
+| `insights_config`         | object    | ❌        | 인사이트 설정 (쿼리 인사이트, 쿼리 문자열 길이, 태그 기록 등)      |
+| `password_validation_policy` | object | ❌        | 비밀번호 정책 설정 (최소 길이, 복잡도, 변경 간격 등)              |
 
 #### 2. `database`
 
