@@ -91,6 +91,38 @@ resource "google_sql_database_instance" "database_instance" {
         update_track = var.settings.maintenance_window.update_track # 업데이트 트랙
       }
     }
+
+    dynamic "location_preference" {
+      for_each = var.settings.location_preference != null ? [1] : []
+      content {
+        zone                   = var.settings.location_preference.zone                   # 기본 존 설정
+        secondary_zone         = var.settings.location_preference.secondary_zone         # 보조 존 설정
+        follow_gae_application = var.settings.location_preference.follow_gae_application # GAE 애플리케이션 존
+      }
+    }
+
+    dynamic "insights_config" {
+      for_each = var.settings.insights_config != null ? [1] : []
+      content {
+        query_insights_enabled  = var.settings.insights_config.query_insights_enabled  # 쿼리 인사이트 활성화 여부
+        query_string_length     = var.settings.insights_config.query_string_length     # 쿼리 문자열 길이
+        record_application_tags = var.settings.insights_config.record_application_tags # 애플리케이션 태그 기록
+        record_client_address   = var.settings.insights_config.record_client_address   # 클라이언트 주소 기록
+        query_plans_per_minute  = var.settings.insights_config.query_plans_per_minute  # 분당 쿼리 플랜 수
+      }
+    }
+
+    dynamic "password_validation_policy" {
+      for_each = var.settings.password_validation_policy != null ? [1] : []
+      content {
+        min_length                  = var.settings.password_validation_policy.min_length                  # 비밀번호 최소 길이
+        complexity                  = var.settings.password_validation_policy.complexity                  # 비밀번호 복잡도
+        reuse_interval              = var.settings.password_validation_policy.reuse_interval              # 재사용 금지 기간
+        disallow_username_substring = var.settings.password_validation_policy.disallow_username_substring # 사용자 이름 포함 금지
+        password_change_interval    = var.settings.password_validation_policy.password_change_interval    # 비밀번호 변경 간격
+        enable_password_policy      = var.settings.password_validation_policy.enable_password_policy      # 비밀번호 정책 활성화 여부
+      }
+    }
   }
 
   timeouts {

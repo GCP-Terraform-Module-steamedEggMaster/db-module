@@ -98,6 +98,29 @@ variable "settings" {
       hour         = optional(number, null) # 유지보수 가능한 시간 (0-23)
       update_track = optional(string, null) # 업데이트 트랙 설정
     }), null)
+
+    location_preference = optional(object({
+      zone                   = string                 # 기본 존 설정
+      secondary_zone         = optional(string, null) # 보조 존 설정 (기본값: null)
+      follow_gae_application = optional(bool, false)  # GAE 애플리케이션 존 사용 여부 (기본값: false)
+    }), null)
+
+    insights_config = optional(object({
+      query_insights_enabled  = bool                   # 쿼리 인사이트 활성화 여부
+      query_string_length     = optional(number, 1024) # 쿼리 문자열 길이 (기본값: 1024)
+      record_application_tags = optional(bool, false)  # 애플리케이션 태그 기록 (기본값: false)
+      record_client_address   = optional(bool, false)  # 클라이언트 주소 기록 (기본값: false)
+      query_plans_per_minute  = optional(number, 5)    # 분당 쿼리 플랜 수 (기본값: 5)
+    }), null)
+
+    password_validation_policy = optional(object({
+      min_length                  = number                     # 비밀번호 최소 길이
+      complexity                  = optional(string, "MEDIUM") # 비밀번호 복잡도 (기본값: "MEDIUM")
+      reuse_interval              = optional(number, 90)       # 재사용 금지 기간 (기본값: 90일)
+      disallow_username_substring = optional(bool, true)       # 사용자 이름 포함 금지 (기본값: true)
+      password_change_interval    = optional(number, 30)       # 비밀번호 변경 간격 (기본값: 30일)
+      enable_password_policy      = optional(bool, true)       # 비밀번호 정책 활성화 여부 (기본값: true)
+    }), null)
   })
 }
 
