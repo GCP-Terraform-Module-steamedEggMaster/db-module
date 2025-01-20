@@ -130,4 +130,10 @@ resource "google_sql_database_instance" "database_instance" {
     update = var.timeout_update # 업데이트 제한 시간
     delete = var.timeout_delete # 삭제 제한 시간
   }
+
+  lifecycle {
+    ignore_changes = [
+      var.settings.insights_config,
+    ]
+  }
 }
