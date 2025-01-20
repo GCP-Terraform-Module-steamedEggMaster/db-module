@@ -133,7 +133,7 @@ resource "google_sql_database_instance" "database_instance" {
 
   lifecycle {
     ignore_changes = [
-      var.settings.insights_config,
+      settings.insights_config,
     ]
   }
 }
