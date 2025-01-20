@@ -76,7 +76,7 @@ variable "settings" {
     backup_configuration = optional(object({
       enabled                        = bool                   # 백업 활성화 여부
       binary_log_enabled             = optional(bool, false)  # MySQL용 바이너리 로그 활성화 여부
-      start_time                     = string                 # 백업 시작 시간 (HH:MM 형식)
+      start_time                     = optional(string, null) # 백업 시작 시간 (HH:MM 형식)
       point_in_time_recovery_enabled = optional(bool, false)  # 시점 복구 활성화 여부
       location                       = optional(string, null) # 백업 저장 위치
     }), null)
